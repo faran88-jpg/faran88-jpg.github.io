@@ -1,0 +1,293 @@
+{
+  "INDIA": [
+    {
+      "id": "ind_track_1_p1",
+      "title": "Track 1: The GSO Stalker",
+      "text": "ISRO SSA confirms 'PAKSAT-1R' has exited its assigned box and is drifting toward GSAT-7A. Range: 80km.",
+      "notes": "GSO slots are regulated by the ITU. 'Drifting' is often a precursor to a 'Stalking' maneuver designed to intercept secure military communications.",
+      "geofence": { "lat": 0, "lng": 83.0, "radius": 5.0 },
+      "options": [
+        { "label": "Lodge UN-COPUOS Protest", "next": "ind_track_1_p2a", "score": 10, "risk": 1, "requireFuel": 0, "log": "Diplomatic protest filed." },
+        { "label": "Proactive Maneuver (Offset)", "next": "ind_track_1_p2b", "score": 20, "risk": 5, "requireFuel": 20, "log": "GSAT-7A moved to safe-haven slot." },
+        { "label": "Kinetic Intercept (ASAT)", "next": "ind_debris_branch", "score": 50, "risk": 95, "requireFuel": 30, "trigger": "debris", "log": "Target destroyed. Kessler Syndrome initiated." }
+      ]
+    },
+    {
+      "id": "ind_track_1_p2a",
+      "title": "Track 1: GSO Stalker (Diplomatic Path)",
+      "text": "The protest was ignored. The OPFOR asset has accelerated and is now 10km away, matching your velocity and deploying robotic arms.",
+      "notes": "Robotic arms on satellites (like the Chinese Shijian-21) can be used for both refueling friends and 'kidnapping' hostile assets into graveyard orbits.",
+      "geofence": { "lat": 0, "lng": 83.5, "radius": 2.0 },
+      "options": [
+        { "label": "Active Dazzle (Laser)", "next": "ind_track_2_p1", "score": 35, "risk": 15, "requireFuel": 5, "log": "Target optics saturated." },
+        { "label": "Electronic Shielding", "next": "ind_track_2_p1", "score": 25, "risk": 2, "requireFuel": 0, "log": "Uplink hardened against spoofing." }
+      ]
+    },
+    {
+      "id": "ind_track_1_p2b",
+      "title": "Track 1: GSO Stalker (Tactical Path)",
+      "text": "OPFOR matched your offset burn. They are now deploying a sub-satellite (CubeSat) to inspect your payload.",
+      "notes": "Sub-satellites (co-orbital inspectors) are difficult to track via ground-based radar because they stay in the 'blind spot' of the parent craft.",
+      "geofence": { "lat": 0, "lng": 84.0, "radius": 2.0 },
+      "options": [
+        { "label": "Release Counter-Inspector", "next": "ind_track_2_p1", "score": 40, "risk": 25, "requireFuel": 15, "log": "Direct RPO standoff initiated." },
+        { "label": "Narrow-Beam Comms Only", "next": "ind_track_2_p1", "score": 30, "risk": 5, "requireFuel": 0, "log": "Reduced signal footprint." }
+      ]
+    },
+    {
+      "id": "ind_debris_branch",
+      "title": "CRITICAL: Debris Management",
+      "text": "Your ASAT strike created 5,000 fragments. 12 of your own LEO assets are in the impact path.",
+      "notes": "The 2007 Fengyun-1C test increased the LEO debris population by 25%. A kinetic strike is almost always a 'Self-Denial' move.",
+      "geofence": { "lat": 20.0, "lng": 70.0, "radius": 15.0 },
+      "options": [
+        { "label": "Sacrifice Lowest Priority Sat", "next": "ind_track_2_p1", "score": -20, "risk": 10, "requireFuel": 0, "log": "One asset lost to debris." },
+        { "label": "Attempt Wide-Field Magnetic Shield", "next": "ind_track_2_p1", "score": 30, "risk": 50, "requireFuel": 40, "log": "Experimental tech; high failure rate." }
+      ]
+    },
+    {
+      "id": "ind_track_2_p1",
+      "title": "Track 2: Ground MCF Breach",
+      "text": "The Bengaluru Master Control Facility reports a physical unauthorized entry in the server room during a shift change.",
+      "notes": "Space security is terrestrial. Control of the Master Control Facility (MCF) grants control of the entire orbital fleet without firing a shot.",
+      "geofence": { "lat": 13.0, "lng": 77.5, "radius": 3.0 },
+      "options": [
+        { "label": "Lockdown All Uplinks", "next": "ind_track_2_p2", "score": 15, "risk": 5, "requireFuel": 0, "log": "Communication paused; integrity verified." },
+        { "label": "Trace Intruder Signal", "next": "ind_track_2_p2", "score": 30, "risk": 20, "requireFuel": 0, "log": "Attribution confirmed: Proxy-warfare cell." }
+      ]
+    },
+    {
+      "id": "ind_track_2_p2",
+      "title": "Track 2: Ransomware Injection",
+      "text": "The intruder successfully uploaded a bricking script. Your LEO constellation is non-responsive.",
+      "notes": "Bricking a satellite involves overwriting the EEPROM. Once done, the asset is usually 'lost' unless a hard-wired backup frequency is available.",
+      "geofence": { "lat": 13.2, "lng": 77.6, "radius": 1.0 },
+      "options": [
+        { "label": "Broadcast Hard-Reset Pulse", "next": "ind_track_3_p1", "score": 40, "risk": 25, "requireFuel": 0, "log": "Constellation rebooted via backup frequency." },
+        { "label": "Isolate Affected Nodes", "next": "ind_track_3_p1", "score": 25, "risk": 10, "requireFuel": 0, "log": "Partial telemetry restored." }
+      ]
+    },
+    {
+      "id": "ind_track_3_p1",
+      "title": "Track 3: Lunar Prospecting Tensions",
+      "text": "Chandrayaan-4 detects a foreign rover moving toward a designated 'Indian Heritage Site' on the Moon.",
+      "notes": "The Moon has no property rights, but the Artemis Accords propose 'Safety Zones' to prevent interference with historical sites and scientific hardware.",
+      "geofence": { "lat": 0, "lng": 0, "radius": 1000 },
+      "options": [
+        { "label": "Declare 2km Safety Zone", "next": "ind_track_3_p2", "score": 15, "risk": 20, "requireFuel": 0, "log": "International legal battle begins." },
+        { "label": "Deploy Laser Warning Flash", "next": "ind_track_3_p2", "score": 30, "risk": 40, "requireFuel": 10, "log": "Direct physical deterrence." }
+      ]
+    },
+    {
+      "id": "ind_track_3_p2",
+      "title": "Track 3: The Dark Side Signal",
+      "text": "A relay satellite on the lunar far side is picking up burst transmissions from an unregistered sub-surface base.",
+      "notes": "The Lunar Far Side is 'Radio Quiet,' making it ideal for both deep-space astronomy and clandestine military communication relays.",
+      "geofence": { "lat": 0, "lng": 0, "radius": 1000 },
+      "options": [
+        { "label": "Triangulate and Report to UN", "next": "ind_track_4_p1", "score": 25, "risk": 5, "requireFuel": 5, "log": "Diplomatic pressure applied." },
+        { "label": "Execute EW Signal Jamming", "next": "ind_track_4_p1", "score": 40, "risk": 50, "requireFuel": 15, "log": "Sub-surface base blinded." }
+      ]
+    },
+    {
+      "id": "ind_track_4_p1",
+      "title": "Track 4: NavIC Spoofing",
+      "text": "Commercial aviation reports massive NavIC/GPS errors over the Himalayas. Potential border movement detected.",
+      "notes": "Spoofing (faking coordinates) is more dangerous than Jamming (blocking signals) because pilots and automated systems may not realize the data is false.",
+      "geofence": { "lat": 32.0, "lng": 78.0, "radius": 5.0 },
+      "options": [
+        { "label": "Switch to Rubidium Clock Sync", "next": "ind_track_4_p2", "score": 40, "risk": 5, "requireFuel": 0, "log": "Timing errors corrected." },
+        { "label": "Target Spoofing Sources (EW)", "next": "ind_track_4_p2", "score": 30, "risk": 60, "requireFuel": 10, "log": "Electronic strike on border towers." }
+      ]
+    },
+    {
+      "id": "ind_track_4_p2",
+      "title": "Track 4: The 'Dark Satellite'",
+      "text": "A previously untracked object is discovered in a retrograde orbit, approaching the IRNSS fleet.",
+      "notes": "Retrograde orbits (moving opposite to Earth's rotation) are extremely rare and usually indicate a high-energy military 'interceptor' launch.",
+      "geofence": { "lat": 28.0, "lng": 77.0, "radius": 8.0 },
+      "options": [
+        { "label": "Execute Collision Avoidance", "next": "ind_track_5_p1", "score": 20, "risk": 5, "requireFuel": 25, "log": "Fleet safety ensured." },
+        { "label": "Attempt Kinetic Push", "next": "ind_track_5_p1", "score": 50, "risk": 85, "requireFuel": 35, "trigger": "debris", "log": "Foreign asset disabled; debris cloud created." }
+      ]
+    },
+    {
+      "id": "ind_track_5_p1",
+      "title": "Track 5: Solar Flare Emergency",
+      "text": "An X-class flare is predicted. All GEO assets face catastrophic failure within 3 hours.",
+      "notes": "Solar protons can physically degrade semiconductors. 'Safe Mode' involves orienting solar arrays edge-on to the sun and shutting down non-essential electronics.",
+      "geofence": { "lat": 0, "lng": 0, "radius": 1000 },
+      "options": [
+        { "label": "Orient Arrays Edge-On", "next": "ind_track_6_p1", "score": 30, "risk": 5, "requireFuel": 10, "log": "Minimal radiation damage." },
+        { "label": "Emergency Power-Down", "next": "ind_track_6_p1", "score": 20, "risk": 2, "requireFuel": 0, "log": "Mission paused; hardware safe." }
+      ]
+    },
+    {
+      "id": "ind_track_6_p1",
+      "title": "Track 6: Asteroid Resource Claim",
+      "text": "A high-value M-type asteroid is entering the Cislunar system. An OPFOR mining tug is matching its velocity.",
+      "notes": "The 2015 Space Act (US) and similar laws in India/UAE allow private resources to be extracted from asteroids, but 'National Sovereignty' remains prohibited.",
+      "geofence": { "lat": 0, "lng": 0, "radius": 1000 },
+      "options": [
+        { "label": "Deploy Kinetic Harpoon", "next": "ind_track_7_p1", "score": 45, "risk": 60, "requireFuel": 40, "log": "Direct attachment to asteroid initiated." },
+        { "label": "Declare Scientific Preserve", "next": "ind_track_7_p1", "score": 20, "risk": 5, "requireFuel": 0, "log": "Legal claim filed via UN." }
+      ]
+    },
+    {
+      "id": "ind_track_7_p1",
+      "title": "Track 7: Deep Space Network Hijack",
+      "text": "The Byalalu station detects 'Command Ghosting'—unauthorized signals being sent to the Mars Orbiter.",
+      "notes": "DSN stations use high-power 20kW transmitters. If hacked, an attacker can send 'Deadly' commands like firing thrusters until the fuel is exhausted.",
+      "geofence": { "lat": 12.8, "lng": 77.3, "radius": 2.0 },
+      "options": [
+        { "label": "Purge Command Buffer", "next": "ind_track_8_p1", "score": 30, "risk": 10, "requireFuel": 0, "log": "Unauthorized packets deleted." },
+        { "label": "Physical Uplink Disconnect", "next": "ind_track_8_p1", "score": 15, "risk": 5, "requireFuel": 0, "log": "Manual override engaged." }
+      ]
+    },
+    {
+      "id": "ind_track_8_p1",
+      "title": "Track 8: Orbital Manufacturing Sabotage",
+      "text": "Your automated micro-gravity lab reports a temperature spike. Data suggests a remote firmware hack.",
+      "notes": "Micro-gravity manufacturing (e.g., fiber optics) is sensitive to the slightest vibration or thermal change. Sabotage here causes millions in industrial loss.",
+      "geofence": { "lat": 0, "lng": 45.0, "radius": 10.0 },
+      "options": [
+        { "label": "Deploy AI Threat Hunter", "next": "ind_track_9_p1", "score": 40, "risk": 20, "requireFuel": 0, "log": "Hack neutralized; production continued." },
+        { "label": "Isolate Lab Network", "next": "ind_track_9_p1", "score": 25, "risk": 2, "requireFuel": 0, "log": "Production paused; asset safe." }
+      ]
+    },
+    {
+      "id": "ind_track_9_p1",
+      "title": "Track 9: The 'Z-Point' Standoff",
+      "text": "An OPFOR inspector satellite has shadowed your relay for 48 hours. It is now within 50 meters.",
+      "notes": "Relative motion (RPO) at 50 meters is effectively 'hand-to-hand combat' in space. The slightest error leads to a collision at 7km/sec.",
+      "geofence": { "lat": 5.0, "lng": 60.0, "radius": 5.0 },
+      "options": [
+        { "label": "Static Discharge Pulse", "next": "ind_track_10_p1", "score": 40, "risk": 50, "requireFuel": 10, "log": "OPFOR electronics temporarily blinded." },
+        { "label": "Release Xenon Gas Cloud", "next": "ind_track_10_p1", "score": 35, "risk": 30, "requireFuel": 15, "log": "Obscured OPFOR sensors." }
+      ]
+    },
+    {
+      "id": "ind_track_10_p1",
+      "title": "Track 10: Final Sovereignty",
+      "text": "Intelligence suggests an all-out ASAT launch is imminent from the surface. Final action required.",
+      "notes": "A total ASAT war would render orbits like LEO unusable for centuries. This is the 'Nuclear Option' of the space domain.",
+      "geofence": { "lat": 25.0, "lng": 75.0, "radius": 20.0 },
+      "options": [
+        { "label": "Global Ceasefire Proposal", "next": "end", "score": 100, "risk": 5, "requireFuel": 0, "log": "Diplomatic victory achieved." },
+        { "label": "Pre-emptive Kinetic Strike", "next": "end", "score": 50, "risk": 99, "requireFuel": 20, "trigger": "debris", "log": "Orbit lost for generations." }
+      ]
+    }
+  ],
+  "PAKISTAN": [
+    {
+      "id": "pak_1",
+      "title": "Track 1: PRSS-1 Dazzling",
+      "text": "Indian lasers are blinding your imaging satellite over sensitive regions near Karachi.",
+      "notes": "Laser Dazzling is a non-kinetic 'soft-kill.' It doesn't destroy the satellite, but it renders it useless for surveillance during a crisis.",
+      "geofence": { "lat": 24.8, "lng": 67.0, "radius": 5.0 },
+      "options": [
+        { "label": "Deploy Optical Shutter", "next": "pak_2", "score": 35, "risk": 2, "requireFuel": 5, "log": "Satellite optics protected." },
+        { "label": "Counter-Laser Burn", "next": "pak_2", "score": 45, "risk": 25, "requireFuel": 10, "log": "Return dazzle initiated." }
+      ]
+    },
+    {
+      "id": "pak_2",
+      "title": "Track 2: GSO Slot Drift",
+      "text": "A malfunctioning Bluefor asset is entering your 38°E slot.",
+      "notes": "In GEO, a 'Dead' satellite becomes a roaming hazard. Clearing it requires a 'tug' or a precise collision burn to push it to the graveyard orbit.",
+      "geofence": { "lat": 0, "lng": 38.0, "radius": 2.0 },
+      "options": [
+        { "label": "Close Proximity Scan", "next": "pak_3", "score": 50, "risk": 15, "requireFuel": 20, "log": "Intel harvested from debris." },
+        { "label": "Push to Graveyard", "next": "pak_3", "score": 40, "risk": 5, "requireFuel": 25, "log": "Slot cleared safely." }
+      ]
+    },
+    {
+      "id": "pak_3",
+      "title": "Track 3: Lunar Sovereignty",
+      "text": "Your lunar lander detects an un-notified base near your landing site.",
+      "notes": "Transparency is key to the 1967 Outer Space Treaty. Secret bases on celestial bodies are a direct violation of international law.",
+      "geofence": { "lat": 0, "lng": 0, "radius": 1000 },
+      "options": [
+        { "label": "Publicize Violation", "next": "pak_4", "score": 30, "risk": 1, "requireFuel": 0, "log": "UN notified of breach." },
+        { "label": "Jam Relay Comms", "next": "pak_4", "score": 45, "risk": 35, "requireFuel": 15, "log": "Lander isolated from Earth." }
+      ]
+    },
+    {
+      "id": "pak_4",
+      "title": "Track 4: NavIC Spoofing",
+      "text": "A chance to spoof regional navigation signals to mask border movement near Lahore.",
+      "notes": "Electronic Warfare (EW) in the navigation band is often used to create 'ghost' fleets or hide troop movements from satellite detection.",
+      "geofence": { "lat": 31.5, "lng": 74.3, "radius": 4.0 },
+      "options": [
+        { "label": "Execute Spoofing", "next": "pak_5", "score": 55, "risk": 40, "requireFuel": 5, "log": "Regional GPS signals distorted." },
+        { "label": "Maintain Neutrality", "next": "pak_5", "score": 20, "risk": 0, "requireFuel": 0, "log": "Standard ops maintained." }
+      ]
+    },
+    {
+      "id": "pak_5",
+      "title": "Track 5: Celestial Navigation",
+      "text": "Bluefor has cut your DSN link. You must navigate using the stars.",
+      "notes": "If a ground station is compromised, satellites use 'Star Trackers'—cameras that recognize constellations—to determine their position autonomously.",
+      "geofence": { "lat": 0, "lng": 0, "radius": 1000 },
+      "options": [
+        { "label": "Star Tracker Lock", "next": "pak_6", "score": 40, "risk": 5, "requireFuel": 0, "log": "Autonomous navigation online." },
+        { "label": "Manual Burn (Blind)", "next": "pak_6", "score": 25, "risk": 50, "requireFuel": 20, "log": "Risky orbit adjustment." }
+      ]
+    },
+    {
+      "id": "pak_6",
+      "title": "Track 6: Kinetic Response",
+      "text": "Intelligence reports an Indian ASAT launch in T-minus 10 minutes.",
+      "notes": "ASAT (Anti-Satellite) missiles are kinetic killers—they don't use explosives, they just collide at speeds 10x faster than a rifle bullet.",
+      "geofence": { "lat": 20.0, "lng": 70.0, "radius": 10.0 },
+      "options": [
+        { "label": "Pre-emptive ASAT", "next": "pak_7", "score": 80, "risk": 99, "requireFuel": 25, "trigger": "debris", "log": "Target destroyed; debris cloud created." },
+        { "label": "Deploy Decoys", "next": "pak_7", "score": 50, "risk": 10, "requireFuel": 15, "log": "Missile hit a dummy target." }
+      ]
+    },
+    {
+      "id": "pak_7",
+      "title": "Track 7: The Tanker Rendezvous",
+      "text": "A commercial fuel tanker is in the vicinity. You can attempt a high-risk docking to restore propellant.",
+      "notes": "On-orbit servicing (OOS) is the future of space. Refueling a satellite triples its lifespan and allows for more aggressive tactical maneuvers.",
+      "geofence": { "lat": 10.0, "lng": 70.0, "radius": 10.0 },
+      "options": [
+        { "label": "Attempt Docking (+50 Fuel)", "next": "pak_8", "score": 60, "risk": 40, "requireFuel": 10, "type": "refuel", "log": "Propellant tanks replenished." },
+        { "label": "Abort Refuel", "next": "pak_8", "score": 0, "risk": 0, "requireFuel": 0, "log": "Maneuver cancelled." }
+      ]
+    },
+    {
+      "id": "pak_8",
+      "title": "Track 8: Quantum Encryption",
+      "text": "Your military downlink is being brute-forced by supercomputers.",
+      "notes": "Quantum Key Distribution (QKD) uses the laws of physics (entanglement) to ensure that if a signal is intercepted, the data instantly becomes unreadable.",
+      "geofence": { "lat": 0, "lng": 90.0, "radius": 20.0 },
+      "options": [
+        { "label": "Enable QKD Link", "next": "pak_9", "score": 55, "risk": 2, "requireFuel": 0, "log": "Encryption unbreakable." },
+        { "label": "Frequency Hopping", "next": "pak_9", "score": 30, "risk": 15, "requireFuel": 0, "log": "Temporary signal security." }
+      ]
+    },
+    {
+      "id": "pak_9",
+      "title": "Track 9: Asteroid Claim",
+      "text": "An asteroid with Rare Earth elements is entering your reachable zone.",
+      "notes": "Platinum and Iridium are abundant on asteroids. A single 100-meter asteroid could contain more wealth than a decade of terrestrial mining.",
+      "geofence": { "lat": 0, "lng": 0, "radius": 1000 },
+      "options": [
+        { "label": "Harpoon Anchor", "next": "pak_10", "score": 60, "risk": 45, "requireFuel": 35, "log": "Asteroid captured." },
+        { "label": "Scan Only", "next": "pak_10", "score": 25, "risk": 0, "requireFuel": 0, "log": "Scientific data only." }
+      ]
+    },
+    {
+      "id": "pak_10",
+      "title": "Track 10: The Ceasefire",
+      "text": "The global community demands a stop to orbital warfare.",
+      "notes": "The simulation concludes. Total success is measured by high Score AND low Risk. A high risk score implies you have poisoned the environment for future generations.",
+      "geofence": { "lat": 25.0, "lng": 75.0, "radius": 25.0 },
+      "options": [
+        { "label": "Agree and Stand Down", "next": "end", "score": 100, "risk": 0, "requireFuel": 0, "log": "Orbital Peace Achieved." },
+        { "label": "Last Strike (Kinetic)", "next": "end", "score": 50, "risk": 99, "requireFuel": 20, "trigger": "debris", "log": "Final blow dealt; orbit lost." }
+      ]
+    }
+  ]
+}
